@@ -31,6 +31,8 @@ jobs:
         uses: env0/terratag-action@1.0.2
         id: tag
         with:
+          verbose: true
+          terratagVersion: 0.1.29
           tags: |
             {
               "environment_name": "github_terratag_blog_post"
