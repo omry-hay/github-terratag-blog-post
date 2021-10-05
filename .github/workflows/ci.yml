@@ -19,6 +19,9 @@ jobs:
         with:
           terraform_version: 0.15.5
           # more setup-terraform configuration. See https://github.com/hashicorp/setup-terraform#usage
+      - name: Node version
+        run: node --version
+
       - name: Terraform init
         id: init
         run: terraform init
