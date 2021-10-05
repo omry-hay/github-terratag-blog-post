@@ -20,7 +20,7 @@ provider "google" {
 }
 
 resource "google_compute_instance" "vm_instance" {
-  name         = "terraform-instance"
+  name         = "terraform-instance-github"
   machine_type = var.machine_type
 
   boot_disk {
@@ -38,6 +38,6 @@ resource "google_compute_instance" "vm_instance" {
 }
 
 resource "google_compute_network" "vpc_network" {
-  name                    = "terraform-network"
+  name                    = "terraform-network-github"
   auto_create_subnetworks = "true"
 }

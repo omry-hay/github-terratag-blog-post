@@ -1,0 +1,39 @@
+name: Deploy Terraform
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code into the Go module directory
+        uses: actions/checkout@v2
+
+      - uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.0.8
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+          TF_VAR_machine_type: e2-medium
+          TF_VAR_project_id: ${{ secrets.GOOGLE_PROJECT_ID }}
+          # more setup-terraform configuration. See https://github.com/hashicorp/setup-terraform#usage
+      - name: Terraform init
+        id: init
+        run: terraform init
+
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate
+
+      - uses: env0/terratag-action
+        name: Tag resources
+        id: tag
+        with:
+          tags: |
+            {
+              "environment_name": "github_terratag_blog_post"
+            }
+
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan
+
+      # - name: Terraform Apply
+      #   id: apply
+      #   run: terraform apply
