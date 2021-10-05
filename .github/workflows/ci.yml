@@ -28,7 +28,7 @@ jobs:
         run: terraform validate
 
       - name: Terratag by env0
-        uses: env0/terratag-action@1.0.2
+        uses: env0/terratag-action@1.0.1
         id: tag
         with:
           verbose: true
