@@ -17,7 +17,7 @@ jobs:
 
       - uses: hashicorp/setup-terraform@v1
         with:
-          terraform_version: 1.0.8
+          terraform_version: 0.15.5
           # more setup-terraform configuration. See https://github.com/hashicorp/setup-terraform#usage
       - name: Terraform init
         id: init
@@ -32,7 +32,7 @@ jobs:
         id: tag
         with:
           verbose: true
-          terratagVersion: 0.1.29
+          terratagVersion: 0.1.28
           tags: |
             {
               "environment_name": "github_terratag_blog_post"
