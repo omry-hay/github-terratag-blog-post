@@ -6,7 +6,7 @@ on:
     branches: [ 'main', 'adding-terraform' ]
 jobs:
   Terraform:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     env:
       GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
       TF_VAR_machine_type: e2-medium
