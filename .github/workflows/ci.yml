@@ -22,7 +22,9 @@ jobs:
 
       - name: Terraform init
         id: init
-        run: terraform init
+        run: |
+          terraform --version
+          terraform init
 
       - name: Terraform Validate
         id: validate
