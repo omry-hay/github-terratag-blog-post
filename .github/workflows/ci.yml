@@ -13,17 +13,12 @@ jobs:
       TF_VAR_machine_type: e2-medium
       TF_VAR_project_id: ${{ secrets.GOOGLE_PROJECT_ID }}
     steps:
-      - uses: actions/setup-node@v2-beta
-        with:
-          node-version: '12'
       - name: Check out code into the Go module directory
         uses: actions/checkout@v2
       - uses: hashicorp/setup-terraform@v1
         with:
-          terraform_version: 0.15.5
+          terraform_version: 1.0.8
           # more setup-terraform configuration. See https://github.com/hashicorp/setup-terraform#usage
-      - name: Node version
-        run: node --version
 
       - name: Terraform init
         id: init
