@@ -7,7 +7,7 @@ on:
 jobs:
   Terraform:
 
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-18.04
     env:
       GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
       TF_VAR_machine_type: e2-medium
