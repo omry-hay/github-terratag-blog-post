@@ -15,9 +15,10 @@ jobs:
     steps:
       - name: Check out code into the Go module directory
         uses: actions/checkout@v2
-      - uses: hashicorp/setup-terraform@v1
+      - uses: hashicorp/setup-terraform@v1.2.1
         with:
           terraform_version: 1.0.8
+          terraform_wrapper: false
           # more setup-terraform configuration. See https://github.com/hashicorp/setup-terraform#usage
 
       - name: Terraform init
