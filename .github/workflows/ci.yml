@@ -41,4 +41,4 @@ jobs:
 
       - name: Terraform Apply
         id: apply
-        run: terraform apply -auto-approve .tf-plan
+        run: terraform destroy -auto-approve
