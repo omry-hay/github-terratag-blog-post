@@ -38,7 +38,7 @@ jobs:
 #           ./terratag -tags='{"environment_name":"github_terratag_blog_post"}'
 
       - name: Terratag by env0
-        uses: env0/terratag-action@1
+        uses: env0/terratag-action@v1
         id: tag
         with:
           verbose: true
