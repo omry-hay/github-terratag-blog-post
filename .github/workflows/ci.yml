@@ -41,7 +41,6 @@ jobs:
         uses: env0/terratag-action@v1
         id: tag
         with:
-          verbose: true
           terratagVersion: 0.1.29
           tags: |
             {
