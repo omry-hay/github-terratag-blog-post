@@ -13,9 +13,10 @@ jobs:
       TF_VAR_machine_type: e2-medium
       TF_VAR_project_id: ${{ secrets.GOOGLE_PROJECT_ID }}
     steps:
-      - name: Check out code into the Go module directory
+      - name: Check out code
         uses: actions/checkout@v2
       - uses: hashicorp/setup-terraform@v1.2.1
+        name: Setup Terraform
         with:
           terraform_version: 1.0.8
           terraform_wrapper: false
@@ -26,10 +27,7 @@ jobs:
         run: |
           terraform --version
           terraform init
-
-      - name: Terraform Validate
-        id: validate
-        run: terraform validate
+          terraform validate
 
       - name: Terratag by env0
         run: |
@@ -43,4 +41,4 @@ jobs:
 
       - name: Terraform Apply
         id: apply
-        run: terraform apply -auto-approve
+        run: terraform apply -auto-approve .tf-plan
