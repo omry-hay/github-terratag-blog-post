@@ -42,6 +42,7 @@ jobs:
         id: tag
         with:
           terratagVersion: 0.1.29
+          dir: './'
           tags: |
             {
               "environment_name": "github_terratag_blog_post"
