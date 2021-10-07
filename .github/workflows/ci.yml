@@ -3,7 +3,7 @@ name: Deploy Terraform
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ 'main', 'adding-terraform' ]
+    branches: [ 'main' ]
 jobs:
   Terraform:
 
@@ -12,6 +12,7 @@ jobs:
       GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
       TF_VAR_machine_type: e2-medium
       TF_VAR_project_id: ${{ secrets.GOOGLE_PROJECT_ID }}
+      TF_IN_AUTOMATION: true
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -37,7 +38,7 @@ jobs:
 
       - name: Terraform Plan
         id: plan
-        run: terraform plan -out=.tf-plan
+        run: terraform plan -out=.tf-plan -destroy
 
       - name: Terraform Apply
         id: apply
