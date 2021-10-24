@@ -37,7 +37,6 @@ jobs:
             {
               "environment_name":"github_terratag_blog_post"
             }
-          dir: test/fixture/terraform_13_14/aws_autoscaling_group/input 
 
       - name: Terraform Plan
         id: plan
